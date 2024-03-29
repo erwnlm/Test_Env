@@ -1,7 +1,7 @@
 name: Testing
 
 on:
-  Dispatch
+  workflow_dispatch
 
 jobs:
   check:
