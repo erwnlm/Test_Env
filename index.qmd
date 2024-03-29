@@ -1,7 +1,8 @@
 ---
 title: "Project 2"
-execute:
-  echo: false
+format:
+  html:
+    code-fold: true
 ---
 
 ```{python, .hidden}
