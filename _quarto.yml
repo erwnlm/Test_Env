@@ -1,0 +1,19 @@
+project:
+  type: website
+  output-dir: docs
+  render:
+    - "*.qmd"
+    - "!testing/"
+
+website:
+  title: "EL"
+format:
+  html:
+    theme:
+      light: flatly
+    css: 
+      - style.css
+    link-external-newwindow: true
+copy_files:
+  - ".env"
+

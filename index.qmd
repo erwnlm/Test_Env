@@ -1,0 +1,14 @@
+---
+title: "Project 2"
+execute:
+  echo: false
+---
+
+```{python, .hidden}
+import os
+my_secret = os.environ['ENV_VARIABLE']
+print(my_secret)
+#from dotenv import load_dotenv
+#load_dotenv("_environment")
+#print(os.getenv('MY_DATABASE'))
+```
