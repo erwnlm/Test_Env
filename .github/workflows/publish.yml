@@ -1,1 +1,16 @@
+name: Testing
 
+on:
+  Dispatch
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    env: 
+      Test_var: ${{vars.REPO_VAR}}
+      Test_sec: ${{secret.REPO_SECRET}}
+    steps: 
+      - name: Print
+        run: echo " ${{vars.REPO_VAR}}"
+      - name: Print2
+        run: echo " ${{secret.REPO_SECRET}}"
