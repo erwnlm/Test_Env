@@ -37,7 +37,7 @@ jobs:
 #        run: sudo apt-get install postgresql-client
 
       - name: echo
-        run: echo $SECRET
+        run: echo "$SECRET"
         
 #      - name: Select table
 #        run: |
