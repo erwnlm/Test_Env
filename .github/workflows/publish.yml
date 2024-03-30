@@ -30,9 +30,12 @@ jobs:
         
       - name: Install PostgreSQL client
         run: sudo apt-get install postgresql-client
+
+      - name: echo
+        run: echo POSTGRES_HOST
         
       - name: Select table
         run: |
-          psql -h POSTGRES_HOST -U POSTGRES_USER -d POSTGRES_DB -c 'SELECT * FROM "Catalyst_Data";'
+          PGPASSWORD=${{ secrets.SQL_PW }} psql -h ${{ secrets.SQL_HOST}} -U ${{ secrets.SQL_User}} -d ${{ secrets.SQL_DB}} -c 'SELECT * FROM "Catalyst_Data";'
 
 
