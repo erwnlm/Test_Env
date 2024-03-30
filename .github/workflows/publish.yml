@@ -1,34 +1,37 @@
 on:
   workflow_dispatch:
   push:
-    branches: main
+    branches: sql
 
 name: Quarto Publish
-
+ 
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
+    services:
+        postgres:
+          image: postgres:latest
+          ports:
+            - 5432:5432
+          env:
+            POSTGRES_USER: ${{ secrets.SQL_USER}}
+            POSTGRES_PASSWORD: ${{ secrets.SQL_PW}}
+            POSTGRES_DB: ${{ secrets.SQL_DB}}
     permissions:
       contents: write
+      
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
+        
+      - name: Install PostgreSQL client
+        run: sudo apt-get install postgresql-client
+        
+      - name: Select table
+        run: |
+          psql -h localhost -U your_username -d el_data -c 'SELECT * FROM "Catalyst_Data";'
 
-      - name: Install Python and Dependencies
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
-          cache: 'pip'
-      - run: pip install jupyter
-      - run: pip install -r requirements.txt
 
-      - name: Render and Publish
-        uses: quarto-dev/quarto-actions/publish@v2
-        with:
-          target: gh-pages
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ENV_VARIABLE: ${{ secrets.REPO_SECRET }}
