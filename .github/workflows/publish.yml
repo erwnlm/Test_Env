@@ -3,7 +3,7 @@ on:
   push:
     branches: sql
 
-name: Quarto Publish
+name: SQL
  
 jobs:
   build-deploy:
@@ -14,6 +14,7 @@ jobs:
           ports:
             - 5432:5432
           env:
+            POSTGRES_HOST: ${{ secrets.SQL_HOST}}
             POSTGRES_USER: ${{ secrets.SQL_USER}}
             POSTGRES_PASSWORD: ${{ secrets.SQL_PW}}
             POSTGRES_DB: ${{ secrets.SQL_DB}}
@@ -32,6 +33,6 @@ jobs:
         
       - name: Select table
         run: |
-          psql -h localhost -U your_username -d el_data -c 'SELECT * FROM "Catalyst_Data";'
+          psql -h POSTGRES_HOST -U POSTGRES_USER -d POSTGRES_DB -c 'SELECT * FROM "Catalyst_Data";'
 
 
