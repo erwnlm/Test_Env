@@ -29,17 +29,11 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
         
-#      - name: Install PostgreSQL client
-#        run: sudo apt-get install postgresql-client
-
-      - name: echo
-        run: echo "$SECRET"
-        
-      - name: echo2
-        run: echo "${{ vars.REPO_VAR}}"
+      - name: Install PostgreSQL client
+        run: sudo apt-get install postgresql-client
         
       - name: Select table
         run: |
-          PGPASSWORD=${{ secrets.SQL_PW }} psql -h ${{ secrets.SQL_HOST}} -U ${{ secrets.SQL_User}} -d ${{ secrets.SQL_DB}} -c 'SELECT * FROM "Catalyst_Data";'
+          psql -h ${{ secrets.SQL_HOST}} -U ${{ secrets.SQL_User}} -d ${{ secrets.SQL_DB}} -c 'SELECT * FROM "Catalyst_Data";'
 
 
