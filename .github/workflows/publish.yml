@@ -24,15 +24,12 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
-
-      - name: Set up Quarto
-        uses: quarto-dev/quarto-actions/setup@v2
         
-      - name: Install PostgreSQL client
-        run: sudo apt-get install postgresql-client
+#      - name: Install PostgreSQL client
+#        run: sudo apt-get install postgresql-client
 
       - name: echo
-        run: echo ${{ secrets.SQL_HOST}}
+        run: echo ${{ vars.ENV_VAR}}
         
 #      - name: Select table
 #        run: |
