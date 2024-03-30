@@ -34,6 +34,6 @@ jobs:
         
       - name: Select table
         run: |
-          psql -h ${{ secrets.SQL_HOST}} -U ${{ secrets.SQL_User}} -d ${{ secrets.SQL_DB}} -c 'SELECT * FROM "Catalyst_Data";'
+          PGPASSWORD=${{ secrets.SQL_PW }} psql -h ${{ secrets.SQL_HOST}} -U ${{ secrets.SQL_User}} -d ${{ secrets.SQL_DB}} -c 'SELECT * FROM "Catalyst_Data";'
 
 
