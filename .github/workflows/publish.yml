@@ -24,7 +24,7 @@ jobs:
       POSTGRES_USER: ${{ secrets.SQL_USER}}
       POSTGRES_PASSWORD: ${{ secrets.SQL_PW}}
       POSTGRES_DB: ${{ secrets.SQL_DB}}
-      SECRET: ${{ vars.ENV_VAR}}
+      SECRET: ${{ vars.REPO_VAR}}
       
     permissions:
       contents: write
@@ -38,6 +38,9 @@ jobs:
 
       - name: echo
         run: echo "$SECRET"
+        
+      - name: echo2
+        run: echo "${{ vars.REPO_VAR}}"
         
 #      - name: Select table
 #        run: |
