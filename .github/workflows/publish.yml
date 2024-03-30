@@ -20,10 +20,6 @@ jobs:
             POSTGRES_DB: ${{ secrets.SQL_DB}}
 
     env:
-      POSTGRES_HOST: ${{ secrets.SQL_HOST}}
-      POSTGRES_USER: ${{ secrets.SQL_USER}}
-      POSTGRES_PASSWORD: ${{ secrets.SQL_PW}}
-      POSTGRES_DB: ${{ secrets.SQL_DB}}
       SECRET: ${{ vars.REPO_VAR}}
       
     permissions:
@@ -42,8 +38,8 @@ jobs:
       - name: echo2
         run: echo "${{ vars.REPO_VAR}}"
         
-#      - name: Select table
-#        run: |
-#          PGPASSWORD=${{ secrets.SQL_PW }} psql -h ${{ secrets.SQL_HOST}} -U ${{ secrets.SQL_User}} -d ${{ secrets.SQL_DB}} -c 'SELECT * FROM "Catalyst_Data";'
+      - name: Select table
+        run: |
+          PGPASSWORD=${{ secrets.SQL_PW }} psql -h ${{ secrets.SQL_HOST}} -U ${{ secrets.SQL_User}} -d ${{ secrets.SQL_DB}} -c 'SELECT * FROM "Catalyst_Data";'
 
 
