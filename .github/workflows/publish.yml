@@ -8,6 +8,7 @@ name: Quarto Publish
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
+    environment: ENVIRONMENT
     permissions:
       contents: write
     steps:
@@ -31,4 +32,6 @@ jobs:
           target: gh-pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ENV_VARIABLE: ${{ secrets.REPO_SECRET }}
+          ENV_VARIABLE: ${{ vars.REPO_VAR }}
+          ENV_VARIABLE1: ${{ vars.ENV_VAR }}
+          ENV_VARIABLE2: ${{ secrets.REPO_SECRET }}
