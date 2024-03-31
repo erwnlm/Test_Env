@@ -8,11 +8,9 @@ format:
 ```{python, .hidden}
 import os
 my_secret = os.environ['ENV_VARIABLE']
-my_secret1 = os.environ[${{ vars.REPO_VAR }}]
 my_secret2 = os.environ['ENV_VARIABLE1']
 my_secret3 = os.environ['ENV_VARIABLE2']
 print(my_secret)
-print(my_secret1)
 print(my_secret2)
 print(my_secret3)
 #from dotenv import load_dotenv
