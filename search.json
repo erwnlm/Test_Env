@@ -4,6 +4,6 @@
     "href": "index.html",
     "title": "Project 2",
     "section": "",
-    "text": "Code\nimport os\nmy_secret = os.environ['ENV_VARIABLE']\nprint(my_secret)\n#from dotenv import load_dotenv\n#load_dotenv(\"_environment\")\n#print(os.getenv('MY_DATABASE'))\n\n\nrepository_variable"
+    "text": "Code\nimport os\nmy_secret = os.environ['ENV_VARIABLE']\nmy_secret2 = os.environ['ENV_VARIABLE1']\nmy_secret3 = os.environ['ENV_VARIABLE2']\nprint(my_secret)\nprint(my_secret2)\nprint(my_secret3)\n#from dotenv import load_dotenv\n#load_dotenv(\"_environment\")\n#print(os.getenv('MY_DATABASE'))\n\n\nrepository_variable\nenvironment_variable\nsecret_text"
   }
 ]
