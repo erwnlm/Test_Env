@@ -8,15 +8,13 @@ name: SQL
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
-    environment: SQL
-    env:
-      SECRET: ${{ vars.SQL_VAR}}
+
       
     permissions:
       contents: write
       
     steps:
-      - name: ECHO1
+      - name: ECHO1        
         run: echo "$SECRET"
         
       - name: ECHO1
